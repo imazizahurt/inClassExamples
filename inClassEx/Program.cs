@@ -5,27 +5,59 @@ namespace inClassEx
 {
     class Program
     {
+        static bool ContainsAtLeastTwoEvenNumbers(List<int> numbers)
+        {
+            int countOfEvens = 0;
+            foreach (int num in numbers)
+            {
+                if(num % 2 == 0)
+                {
+                    countOfEvens += 1;
+                }
+
+                if(countOfEvens >= 2)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        static int SumArray(int[] numbers)
+        {
+            int total = 0;
+            foreach (int number in numbers)
+            {
+                total = total + number;
+            }
+
+            return total;
+        }
+
+        static bool ContainsAnEight(int[] numbers)
+        {
+            foreach (int number in numbers)
+            {
+                if(number == 8)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+
+        }
+
+
+
+
+
+
         static void Main(string[] args)
         {
-            string name = AskQuestions("What is your name?");
-            string favoriteColor = AskQuestions("What is your favorite color?");
-            string favoriteCar = AskQuestions("What is your favorite car?");
-
-            Console.WriteLine("Hey, " + name + "!");
-            Console.WriteLine("Your favorite color is " + favoriteColor);
-            Console.WriteLine("And your favorite car is " + favoriteCar);
+          
         }
 
-        static string AskQuestions(string question)
-        {
-            string response = "";
-            while (response == "")
-            {
-                Console.WriteLine(question);
-                response = Console.ReadLine();
-
-            }
-            return response;
-        }
+        
     }
 }
