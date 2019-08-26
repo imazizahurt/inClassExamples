@@ -5,59 +5,33 @@ namespace inClassEx
 {
     class Program
     {
-        static bool ContainsAtLeastTwoEvenNumbers(List<int> numbers)
+      
+        static void Main(string[] args)
         {
-            int countOfEvens = 0;
-            foreach (int num in numbers)
-            {
-                if(num % 2 == 0)
-                {
-                    countOfEvens += 1;
-                }
-
-                if(countOfEvens >= 2)
-                {
-                    return true;
-                }
-            }
-            return false;
+            //Calling a method that then calls another method
+            AskNumericQuestionThenDisplayTotal("What's your favorite number?");
+            AskNumericQuestionThenDisplayTotal("What's your favorite year?");
         }
 
-        static int SumArray(int[] numbers)
+        static int AddNumberFrom1toN(int n)
         {
             int total = 0;
-            foreach (int number in numbers)
+            for (int i = 1; i <= n; i++)
             {
-                total = total + number;
+                total = total + i;
             }
-
             return total;
         }
 
-        static bool ContainsAnEight(int[] numbers)
+        static void AskNumericQuestionThenDisplayTotal(string question)
         {
-            foreach (int number in numbers)
-            {
-                if(number == 8)
-                {
-                    return true;
-                }
-            }
+            Console.WriteLine(question);
+            string responseAsString = Console.ReadLine();
+            int response = int.Parse(responseAsString);
 
-            return false;
-
+            //Calling another method we created.
+            int total = AddNumberFrom1toN(response);
+            Console.WriteLine("If you add all numbers from 1-" + response + "the total is " + total);
         }
-
-
-
-
-
-
-        static void Main(string[] args)
-        {
-          
-        }
-
-        
     }
 }
