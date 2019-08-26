@@ -7,40 +7,25 @@ namespace inClassEx
     {
         static void Main(string[] args)
         {
-            //for
+            string name = AskQuestions("What is your name?");
+            string favoriteColor = AskQuestions("What is your favorite color?");
+            string favoriteCar = AskQuestions("What is your favorite car?");
 
-            for (int i = 0; i < 10; i++)
+            Console.WriteLine("Hey, " + name + "!");
+            Console.WriteLine("Your favorite color is " + favoriteColor);
+            Console.WriteLine("And your favorite car is " + favoriteCar);
+        }
+
+        static string AskQuestions(string question)
+        {
+            string response = "";
+            while (response == "")
             {
-                Console.WriteLine(i);
+                Console.WriteLine(question);
+                response = Console.ReadLine();
+
             }
-
-            //foreach
-
-            string[] names = { "Smith", "Piper", "Adam", "Hunter", "Bailey" };
-
-            foreach (string name in names)
-            {
-                Console.WriteLine(name);
-            }
-
-            //while
-
-            string userResponse = "no";
-            while(userResponse != "yes")
-            {
-                Console.WriteLine("Please say yes!!");
-                userResponse = Console.ReadLine();
-            }
-
-            //do-while
-
-            int numberForDoWhileLoop = 99;
-
-            do
-            {
-                Console.WriteLine("Hey Dude!!!");
-            } while (numberForDoWhileLoop < 0);
-
+            return response;
         }
     }
 }
