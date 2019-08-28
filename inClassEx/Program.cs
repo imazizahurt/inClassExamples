@@ -7,47 +7,50 @@ namespace inClassEx
       
         static void Main(string[] args)
         {
-            //// Making 3 separate, independent variables to
-            // describe a cat, which will have to be carefully
-            // tracked/juggled as the program continues
+            //The long way that can be made easier with arrays
+            string name01 = "Hunter";
+            string name02 = "Bailey";
+            string name03 = "Piper";
+            string name04 = "Smith";
+            string name05 = "Adam";
 
-            string catName = "Oscar";
-            string catColor = "brown";
-            int catAge = 1;
+            Console.WriteLine(name01);
 
-            string catName1 = "Ted";
-            string catColor2 = "blue";
-            int catAge2 = 4;
+            string[] names = new string[5];
 
+            names[0] = "Hunter";
+            names[4] = "Bailey";
+            names[2] = "Piper";
+            names[3] = "Smith";
+            names[1] = "Adam";
 
-            Cat catOne = new Cat();
-            catOne.Name = "Hin";
-            catOne.Color = "brown";
-            catOne.Age = 1;
-
-            //A different way to define catTwo
-            Cat catTwo = new Cat
+            foreach (var person in names)
             {
-                Name = "bud",
-                Color = "orange",
-                Age = 3
-            };
-
-            catOne.Meow();
-            catTwo.Meow();
-        }
-
-        public class Cat
-        {
-            public string Name { get; set; }
-            public string Color { get; set; }
-            public int Age { get; set; }
-
-            public void Meow()
-            {
-                Console.WriteLine($"Meeeooow, I'm {Name}, the {Color} cat!");
+                Console.WriteLine(person);
             }
+
+            string[] cars = new string[3] { "honda", "toyota", "chevy" };
+
+            foreach (var c in cars)
+            {
+                Console.WriteLine(c);
+            }
+
+            int[] grades = new int[3] { 98, 89, 77 };
+
+            foreach (int g in grades)
+            {
+                Console.WriteLine(g);
+            }
+
+            
+
+
+
+            
         }
+
+        
 
     }
 }
