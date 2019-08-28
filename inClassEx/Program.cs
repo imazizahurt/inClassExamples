@@ -1,56 +1,35 @@
-﻿using System;
+﻿
+using System;
+using System.Collections.Generic;
 
-namespace inClassEx
+namespace Mark8InClassExamples
 {
     class Program
     {
-      
         static void Main(string[] args)
         {
-            //The long way that can be made easier with arrays
-            string name01 = "Hunter";
-            string name02 = "Bailey";
-            string name03 = "Piper";
-            string name04 = "Smith";
-            string name05 = "Adam";
+            Console.WriteLine("Do you have any pets?");
+            string response = Console.ReadLine();
 
-            Console.WriteLine(name01);
+            List<string> petNames = new List<string>();
+            List<string> affirmativeResponses = new List<string>() { "y", "yes", "yeah", "yep", "uh huh" };
 
-            string[] names = new string[5];
-
-            names[0] = "Hunter";
-            names[4] = "Bailey";
-            names[2] = "Piper";
-            names[3] = "Smith";
-            names[1] = "Adam";
-
-            foreach (var person in names)
+            while (affirmativeResponses.Contains(response.ToLower()) == true)
             {
-                Console.WriteLine(person);
+                Console.WriteLine("What is the name of one of your pets?");
+                string petName = Console.ReadLine();
+                petNames.Add(petName);
+
+                Console.WriteLine("Do you have any more pets?");
+                response = Console.ReadLine();
             }
 
-            string[] cars = new string[3] { "honda", "toyota", "chevy" };
-
-            foreach (var c in cars)
+            foreach (var a in petNames)
             {
-                Console.WriteLine(c);
+                Console.WriteLine(a);
             }
 
-            int[] grades = new int[3] { 98, 89, 77 };
 
-            foreach (int g in grades)
-            {
-                Console.WriteLine(g);
-            }
-
-            
-
-
-
-            
         }
-
-        
-
     }
 }
