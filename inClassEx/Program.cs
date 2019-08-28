@@ -8,28 +8,45 @@ namespace Mark8InClassExamples
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Do you have any pets?");
-            string response = Console.ReadLine();
+            Console.WriteLine("Let's play a guessing game!");
+            Console.WriteLine("What max value would you like to use?");
+            string strMax = Console.ReadLine();
+            int max = int.Parse(strMax);
 
-            List<string> petNames = new List<string>();
-            List<string> affirmativeResponses = new List<string>() { "y", "yes", "yeah", "yep", "uh huh" };
+            Random rnd = new Random();
+            int secretNumber = rnd.Next(1, max + 1);
 
-            while (affirmativeResponses.Contains(response.ToLower()) == true)
+            int guess;
+            do
             {
-                Console.WriteLine("What is the name of one of your pets?");
-                string petName = Console.ReadLine();
-                petNames.Add(petName);
+                Console.ResetColor();
+                Console.WriteLine("Please guess a number between 1-" + max + ":");
 
-                Console.WriteLine("Do you have any more pets?");
-                response = Console.ReadLine();
-            }
+                string strGuess = Console.ReadLine();
+                guess = int.Parse(strGuess);
+                //also could do: int guess = int.Parse(Console.ReadLine());
 
-            foreach (var a in petNames)
-            {
-                Console.WriteLine(a);
-            }
+                if (guess == secretNumber)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("You're not wrong!");
+                }
 
+                else if (guess > secretNumber)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("You die...Too High! LOSER!");
+                }
 
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("You're slow...Too Low! LOSER!");
+                }
+            } while (guess != secretNumber);
         }
+        
+         
+        
     }
 }
