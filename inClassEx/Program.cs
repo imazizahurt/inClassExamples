@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace inClassEx
 {
@@ -8,30 +7,47 @@ namespace inClassEx
       
         static void Main(string[] args)
         {
-            //Calling a method that then calls another method
-            AskNumericQuestionThenDisplayTotal("What's your favorite number?");
-            AskNumericQuestionThenDisplayTotal("What's your favorite year?");
-        }
+            //// Making 3 separate, independent variables to
+            // describe a cat, which will have to be carefully
+            // tracked/juggled as the program continues
 
-        static int AddNumberFrom1toN(int n)
-        {
-            int total = 0;
-            for (int i = 1; i <= n; i++)
+            string catName = "Oscar";
+            string catColor = "brown";
+            int catAge = 1;
+
+            string catName1 = "Ted";
+            string catColor2 = "blue";
+            int catAge2 = 4;
+
+
+            Cat catOne = new Cat();
+            catOne.Name = "Hin";
+            catOne.Color = "brown";
+            catOne.Age = 1;
+
+            //A different way to define catTwo
+            Cat catTwo = new Cat
             {
-                total = total + i;
-            }
-            return total;
+                Name = "bud",
+                Color = "orange",
+                Age = 3
+            };
+
+            catOne.Meow();
+            catTwo.Meow();
         }
 
-        static void AskNumericQuestionThenDisplayTotal(string question)
+        public class Cat
         {
-            Console.WriteLine(question);
-            string responseAsString = Console.ReadLine();
-            int response = int.Parse(responseAsString);
+            public string Name { get; set; }
+            public string Color { get; set; }
+            public int Age { get; set; }
 
-            //Calling another method we created.
-            int total = AddNumberFrom1toN(response);
-            Console.WriteLine("If you add all numbers from 1-" + response + "the total is " + total);
+            public void Meow()
+            {
+                Console.WriteLine($"Meeeooow, I'm {Name}, the {Color} cat!");
+            }
         }
+
     }
 }
