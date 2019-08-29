@@ -1,17 +1,18 @@
 ﻿using System;
 
-namespace Mark8InClassExamples
+namespace inClassEx
 {
     class User
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string FavAnimal { get; set; }
-        public string FavNumber { get; set; }
+        public string FavColor { get; set; }
+        public int FavNumber { get; set; }
 
         public string AnswerQuestion(string question)
         {
-            Console.Write(question);
+            Console.WriteLine(question);
             return Console.ReadLine();
         }
 

@@ -1,41 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Mark8InClassExamples
+namespace inClassEx
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Multiplication of two numbers:" + MultDisplay(5, 2));
+            User user = new User();
+            Console.WriteLine("Hey, Can I ask you a little about yourself?");
 
-            Console.WriteLine("Multiplication of two numbers:" + MultDisplay(8, 2, 12));
+            user.FirstName = user.AnswerQuestion("What's your first name?");
+            user.LastName = user.AnswerQuestion("What's your last name?");
+            user.FavAnimal = user.AnswerQuestion("What's your favorite animal?");
+            user.FavColor = user.AnswerQuestion("How about your favorite color...");
+            user.FavNumber = user.AnswerQuestionWithInteger("What's your lucky number?");
 
-            Console.WriteLine("Multiplication of two numbers:" + MultDisplay(2.2, 6.7));
+            Console.WriteLine($"So, you are {user.FirstName} {user.LastName}, and your favorite color is {user.FavColor}!");
+            Console.WriteLine($"Your spirit animal is {user.FavAnimal}!");
 
-            Console.WriteLine("Multiplication of two numbers:" + MultDisplay(6, 2, 7, 0));
+            Console.Write($"And your lucky number is");
+
+            if(user.FavNumber > 10)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"{user.FavNumber}");
+                Console.ForegroundColor = ConsoleColor.Black;
+            }
+
+            else if(user.FavNumber < 10)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"{user.FavNumber}");
+                Console.ForegroundColor = ConsoleColor.Black;
+            }
+
 
         }
 
-        public static int MultDisplay(int num1, int num2)
-        {
-            return num1 * num2;
-        }
-
-        public static int MultDisplay(int num1, int num2, int num3)
-        {
-            return num1 * num2 * num3;
-        }
-
-        public static double MultDisplay(double num1, double num2)
-        {
-            return num1 * num2;
-        }
-
-        public static int MultDisplay(int num1, int num2, int num3, int num4)
-        {
-            return num1 * num2 * num3 * num4;
-        }
         
     }
 }
