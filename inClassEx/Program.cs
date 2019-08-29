@@ -7,26 +7,34 @@ namespace Mark8InClassExamples
     {
         static void Main(string[] args)
         {
-            List<string> myList = new List<string>()
-            {
-                "shoes",
-                "hats",
-                "shirts",
-                "people"
-            };
+            Console.WriteLine("Multiplication of two numbers:" + MultDisplay(5, 2));
 
-            myList.Add("computers");
+            Console.WriteLine("Multiplication of two numbers:" + MultDisplay(8, 2, 12));
 
-            myList.Remove("hats");
-            myList.Remove("shoes");
+            Console.WriteLine("Multiplication of two numbers:" + MultDisplay(2.2, 6.7));
 
-            Console.WriteLine(myList.Count);
+            Console.WriteLine("Multiplication of two numbers:" + MultDisplay(6, 2, 7, 0));
 
-            foreach (string thing in myList)
-            {
-                Console.WriteLine(thing);
-            }
+        }
 
+        public static int MultDisplay(int num1, int num2)
+        {
+            return num1 * num2;
+        }
+
+        public static int MultDisplay(int num1, int num2, int num3)
+        {
+            return num1 * num2 * num3;
+        }
+
+        public static double MultDisplay(double num1, double num2)
+        {
+            return num1 * num2;
+        }
+
+        public static int MultDisplay(int num1, int num2, int num3, int num4)
+        {
+            return num1 * num2 * num3 * num4;
         }
         
     }
