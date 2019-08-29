@@ -7,5 +7,6 @@
 
   <ItemGroup>
     <Compile Remove="ChallengesSet01.cs" />
+    <Compile Remove="User.cs" />
   </ItemGroup>
 </Project>
