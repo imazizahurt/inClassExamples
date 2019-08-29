@@ -6,44 +6,60 @@ namespace Mark8InClassExamples
 {
     class Program
     {
+        static int GetIntegerFromUser(string question)
+        {
+            int integerFromUser;
+            bool success;
+            do
+            {
+                Console.WriteLine(question);
+                string userResponse = Console.ReadLine();
+                success = int.TryParse(userResponse, out integerFromUser);
+            } while (success == false);
+
+            return integerFromUser;
+        }
+
+
+
         static void Main(string[] args)
         {
             Console.WriteLine("Let's play a guessing game!");
-            Console.WriteLine("What max value would you like to use?");
-            string strMax = Console.ReadLine();
-            int max = int.Parse(strMax);
 
+            int max = GetIntegerFromUser("What max range would you like?");
+          
             Random rnd = new Random();
             int secretNumber = rnd.Next(1, max + 1);
 
+            int score = 0;
             int guess;
+
             do
             {
                 Console.ResetColor();
-                Console.WriteLine("Please guess a number between 1-" + max + ":");
 
-                string strGuess = Console.ReadLine();
-                guess = int.Parse(strGuess);
-                //also could do: int guess = int.Parse(Console.ReadLine());
+                Console.WriteLine("Your current score is " + score);
+                guess = GetIntegerFromUser("Please guess a number between 1-" + max + ":");
 
-                if (guess == secretNumber)
-                {
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("You're not wrong!");
-                }
 
-                else if (guess > secretNumber)
+                if (guess > secretNumber)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You die...Too High! LOSER!");
+                    score += 1;
                 }
 
-                else
+                else if(guess < secretNumber)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You're slow...Too Low! LOSER!");
+                    score += 1;
                 }
             } while (guess != secretNumber);
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("You are correct..Smart person!!!");
+            Console.WriteLine("Your final score was " + score);
         }
         
          
