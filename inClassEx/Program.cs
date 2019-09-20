@@ -1,40 +1,50 @@
 ﻿using System;
-using System.Linq;
 
-namespace inClassEx
+namespace Practice_Method
 {
     class Program
     {
-
-
+    
         static void Main(string[] args)
         {
-            int[] numbers = { 3, 5, 7, 3, 7, 2, 1 };
-            int total = numbers.Sum(); //Sum() is an extension method in the System.Linq namespace
-                                      //Sum() is not a method of the int[] class itself
+            //DivideByZero Exception
 
-            int x = 10;
+            int num1 = 800;
+            int num2 = 0;
 
-            //The in class does not have a Multiply method
-            //Multiply is an extension method we wrote below
-            int y = x.Multiply(99);
+            try
+            {
+                Console.WriteLine(num1/num2);
+            }
 
-            //GetLastCharacter is an extension method written below
-            string lastLetter = "Hello".GetLastCharacter();
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
-            Console.WriteLine(y);
+            finally
+            {
+                Console.WriteLine("Pick a different divisor!");
+            }
 
-            Console.WriteLine(lastLetter);
+            //OutOfRange Exception
+
+            int[] goodArray = { 1, 5, 7, 8, 9 };
+
+            try
+            {
+                Console.WriteLine(goodArray[5]);
+            }
+
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+
+
+
         }
 
-
-    }
-
-    static class IntegerExtensions
-    {
-        public static int Multiply(this int number, int multiplyBy) => number * multiplyBy;
-       
-        public static string GetLastCharacter(this string str) => str[str.Length - 1].ToString(); 
-      
     }
 }
